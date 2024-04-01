@@ -1,0 +1,93 @@
+@import "../../partials/settings";
+
+.checked {
+  filter: opacity(0.6);
+}
+
+.flex {
+  display: flex;
+  align-content: center;
+  &-space-between {
+    justify-content: space-between;
+  }
+}
+input[type="checkbox"] {
+  accent-color: $colorBlue;
+}
+.inputBox {
+  transform: scale(1.7);
+}
+
+.task-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+}
+
+/* Style dla formularza */
+.form-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Style dla etykiet */
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style dla pól wejściowych */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Zapewnia, że szerokość pola obejmuje padding i border */
+}
+
+/* Style dla przycisku Submit */
+.form-submit-button {
+  background-color: $colorBlue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  &:hover {
+    background-color: #45a049;
+  }
+}
+
+/* Styl dla obszaru komunikatu */
+.message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Styl dla komunikatu sukcesu */
+.message.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+  border: 1px solid #d0e9c6;
+}
+
+/* Styl dla komunikatu błędu */
+.message.error {
+  background-color: #f2dede;
+  color: #a94442;
+  border: 1px solid #ebccd1;
+}
