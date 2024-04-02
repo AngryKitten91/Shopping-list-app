@@ -67,14 +67,17 @@ function App() {
 
   const handleActiveToggle = (searchUUID) => {
     setTaskList((prevState) => {
-      const searchedVal = prevState.filter(
-        ({ uuid }) => uuid === searchUUID
-      )[0];
-      const restValues = prevState.filter(({ uuid }) => uuid !== searchUUID);
-      return [
-        ...restValues,
-        { ...searchedVal, isActive: !searchedVal.isActive },
-      ];
+      const newState = prevState.map((elem) => {
+        if (elem.uuid === searchUUID) {
+          return {
+            ...elem,
+            isActive: !elem.isActive,
+          };
+        }
+        return elem;
+      });
+
+      return newState;
     });
   };
 
