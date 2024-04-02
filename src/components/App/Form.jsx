@@ -122,10 +122,10 @@ const groceries = [
   "Quinoa",
 ];
 
-function Form({ handleSubmit, handleChange, formData }) {
+function Form({ handleSubmit, handleReset, handleChange, formData }) {
   return (
     <>
-      <form className="form-container" onSubmit={handleSubmit}>
+      <form className="form-container box" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Product:</label>
           <input
@@ -159,9 +159,18 @@ function Form({ handleSubmit, handleChange, formData }) {
             className="form-input"
           ></textarea>
         </div>
-        <button type="submit" className="form-submit-button">
-          Submit
-        </button>
+        <div className="flex flex-space-between">
+          <button
+            onSubmit={handleSubmit}
+            type="submit"
+            className="form-submit-button"
+          >
+            Add
+          </button>
+          <div onClick={handleReset} className="form-reset-button">
+            Reset
+          </div>
+        </div>
       </form>
     </>
   );

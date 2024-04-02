@@ -1,4 +1,76 @@
 @import "../../partials/settings";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  background-color: $colorBlue;
+}
+
+.box {
+  box-shadow: 0px 0px 20px 0px $colorBlack;
+}
+
+.btn {
+  cursor: pointer;
+  &-container {
+    gap: $spacing;
+  }
+  &-delete {
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s;
+}
+
+.grey-in {
+  animation: grey-in 1s;
+}
+
+.grey-out {
+  animation: grey-out 1s;
+}
+
+.container {
+  max-width: $mediumScreenWidth;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.header {
+  gap: $spacing;
+  margin: 0 0 $spacing 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
+  text-align: center;
+  &-taskInfo {
+    color: $colorBlue;
+  }
+  &-content {
+    text-align: justify;
+  }
+  &-title {
+    background: -webkit-linear-gradient($colorYellow, $colorOrange);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.img {
+  width: 100%;
+  // display: block;
+  border: 5px solid $colorOrange;
+}
+
+.logo {
+  border-radius: 50%;
+  max-width: 100px;
+}
 
 .checked {
   filter: opacity(0.6);
@@ -6,11 +78,25 @@
 
 .flex {
   display: flex;
+  align-items: center;
   align-content: center;
+  flex-wrap: wrap;
+  &-flex-end {
+    justify-content: flex-end;
+  }
   &-space-between {
     justify-content: space-between;
   }
+  &-flex-start {
+    justify-content: flex-start;
+  }
 }
+
+.column--shrunk {
+  /* prevents vertical stretching */
+  align-self: start;
+}
+
 input[type="checkbox"] {
   accent-color: $colorBlue;
 }
@@ -18,21 +104,29 @@ input[type="checkbox"] {
   transform: scale(1.7);
 }
 
-.task-container {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 10px 0;
-  background-color: #f9f9f9;
+.task {
+  gap: $spacing;
+  &-list > * {
+    width: calc(50% - ($spacing / 2));
+  }
+  &-container {
+    max-width: 100%;
+    padding: $spacing;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  &-info {
+    min-height: 200px;
+  }
 }
 
 /* Style dla formularza */
 .form-container {
+  margin-bottom: $spacing;
   max-width: 100%;
-  margin: 0 auto;
-  padding: 20px;
+  // margin: 0 auto;
+  padding: $spacing;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
@@ -57,17 +151,30 @@ input[type="checkbox"] {
   box-sizing: border-box; /* Zapewnia, że szerokość pola obejmuje padding i border */
 }
 
-/* Style dla przycisku Submit */
-.form-submit-button {
-  background-color: $colorBlue;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  &:hover {
-    background-color: #45a049;
+.form {
+  &-reset-button {
+    background-color: $colorOrange;
+    color: white;
+    padding: 10px $spacing;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    &:hover {
+      filter: brightness(150%);
+    }
+  }
+  &-submit-button {
+    background-color: $colorBlue;
+    color: white;
+    padding: 10px $spacing;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    &:hover {
+      filter: brightness(150%);
+    }
   }
 }
 
@@ -90,4 +197,49 @@ input[type="checkbox"] {
   background-color: #f2dede;
   color: #a94442;
   border: 1px solid #ebccd1;
+}
+
+@media screen and (max-width: $smallScreenWidth) {
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .task {
+    &-list > * {
+      width: 100%;
+    }
+  }
+  .header {
+    flex-flow: column-reverse;
+  }
+  .logo {
+    max-width: 150px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes grey-in {
+  0% {
+    filter: opacity(1);
+  }
+  100% {
+    filter: opacity(0.6);
+  }
+}
+
+@keyframes grey-out {
+  0% {
+    filter: opacity(0.6);
+  }
+  100% {
+    filter: opacity(1);
+  }
 }
