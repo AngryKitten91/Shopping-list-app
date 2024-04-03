@@ -4,19 +4,21 @@ function Task({ name, message, uuid, handleToggle, isActive, handleDelete }) {
   return (
     <>
       <div
-        className={`task-container box fade-in ${
+        className={`task-container task-flex task-flex-align  box fade-in ${
           isActive ? "grey-out" : "grey-in"
         } ${isActive ? "unchecked" : "checked"}`}
       >
-        <div className="flex flex-space-between">
-          <div>
-            <h2>{name}</h2>
-            <p>{message}</p>
-          </div>
-          <div className="flex btn-delete btn-container">
-            <div className="btn" onClick={() => handleDelete(uuid)}>
-              X
+        <div className="task-flex task-row flex-space-between gap">
+          <div className="task-flex task-flex-align  gap task-flex-center">
+            <div className="btn btn-delete" onClick={() => handleDelete(uuid)}>
+              <p>X</p>
             </div>
+            <div>
+              <h2>{name}</h2>
+              <p>{message}</p>
+            </div>
+          </div>
+          <div className="flex btn-container">
             <input
               onClick={() => handleToggle(uuid)}
               className="inputBox btn"

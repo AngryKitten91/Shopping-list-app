@@ -132,6 +132,7 @@ function Form({ handleSubmit, handleReset, handleChange, formData }) {
             type="text"
             id="name"
             name="name"
+            maxLength="20"
             list="hints"
             placeholder="Insert Product Name"
             value={formData.name}
@@ -152,6 +153,7 @@ function Form({ handleSubmit, handleReset, handleChange, formData }) {
           <textarea
             id="message"
             name="message"
+            maxLength={150}
             placeholder="Enter some Notes"
             value={formData.message}
             onChange={handleChange}
@@ -165,7 +167,7 @@ function Form({ handleSubmit, handleReset, handleChange, formData }) {
             type="submit"
             className="form-submit-button"
           >
-            Add
+            Add Product +
           </button>
           <div onClick={handleReset} className="form-reset-button">
             Reset

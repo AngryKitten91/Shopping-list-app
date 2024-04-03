@@ -19,6 +19,17 @@ body {
     gap: $spacing;
   }
   &-delete {
+    background-color: $colorOrange;
+    border-radius: 50%;
+    padding: 10px 15px;
+    text-align: center;
+    font-weight: bold;
+    color: $colorWhite;
+    height: 40px;
+    transition: all 0.2s ease;
+    &:hover {
+      filter: brightness(150%);
+    }
   }
 }
 
@@ -48,6 +59,7 @@ body {
   font-style: normal;
   font-size: 2.5rem;
   text-align: center;
+
   &-taskInfo {
     color: $colorBlue;
     margin-bottom: 30px;
@@ -93,6 +105,10 @@ body {
   }
 }
 
+.gap {
+  gap: $spacing;
+}
+
 .column--shrunk {
   /* prevents vertical stretching */
   align-self: start;
@@ -110,12 +126,30 @@ input[type="checkbox"] {
   &-list > * {
     width: calc(50% - ($spacing / 2));
   }
+  &-row {
+    width: 100%;
+  }
   &-container {
     max-width: 100%;
     padding: $spacing;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    overflow-x: hidden;
+    min-height: 150px;
+  }
+  &-flex {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  &-flex-center {
+    align-content: center;
+  }
+  &-flex-align {
+    align-items: center;
+  }
+  & p {
+    text-align: justify;
   }
   &-info {
     min-height: 200px;
