@@ -134,7 +134,7 @@ function Form({ handleSubmit, handleReset, handleChange, formData }) {
             name="name"
             maxLength="20"
             list="hints"
-            placeholder="Insert Product Name"
+            placeholder="Insert Product Name (max 20 char.)"
             value={formData.name}
             onChange={handleChange}
             required
@@ -154,7 +154,8 @@ function Form({ handleSubmit, handleReset, handleChange, formData }) {
             id="message"
             name="message"
             maxLength={150}
-            placeholder="Enter some Notes"
+            rows={2}
+            placeholder="Enter some Notes (max 150 char.)"
             value={formData.message}
             onChange={handleChange}
             required
